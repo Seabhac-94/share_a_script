@@ -13,7 +13,6 @@ app.secret_key = os.getenv("SECRET_KEY")
 app.config["MONGO_DBNAME"] = "share_a_script"
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 
-
 mongo = PyMongo(app)
 
 @app.route('/')

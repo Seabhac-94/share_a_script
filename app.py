@@ -3,14 +3,16 @@ from flask import Flask, render_template, redirect, request, url_for
 import pymongo
 import dns
 from flask_pymongo import PyMongo
-from config import Config
+import env
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
-app.config["MONGO_DBNAME"] = 'share_a_script'
-app.config['MONGO_URI'] = 'mongodb+srv://root:tqElhg634c6ax5@myfirstcluster-yibrd.mongodb.net/share_a_script?retryWrites=true&w=majority'
+app.secret_key = os.getenv("SECRET_KEY")
+app.config["MONGO_DBNAME"] = "share_a_script"
+app.config["MONGO_URI"] = os.getenv("MONGO_URI")
+
 
 mongo = PyMongo(app)
 

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<ul class="list-group">
+
+    {% for categories in categories %}
+
+    <li class="list-group-item list-group-item-primary"> {{ categories.category_name }}</li>
+    
+    {% endfor %}
+</ul>
+
+<br>
+<a href="{{url_for('get_authors')}}">Authors</a>
+{% endblock %}

@@ -1,5 +1,38 @@
-.header {
-    height: 30%;
+/* --- Font --- */
+
+@import url('https://fonts.googleapis.com/css?family=Satisfy&display=swap | 100, 200, 300, 400, 500, 600, 700');
+
+/* --- base.html --- */
+
+.bg-image{
     background-image: url(../images/bg_image.jpg);
+    background-position-y: bottom;
     background-size: cover;
+    height: 50vh;
+    opacity: 0.9
 }
+
+.main-heading {
+    font-family: 'Satisfy' , sans-serif;
+}
+
+.jumbotron {
+    background-color: silver;
+    opacity: 0.8;
+}
+
+/* --- index.html --- */
+
+.about-us {
+    background-color: silver;
+}
+
+.call-to-action{
+    background-color: transparent;
+    border: none
+}
+.fa-feather{
+    font-size: 3rem;
+    color: black;
+}
+

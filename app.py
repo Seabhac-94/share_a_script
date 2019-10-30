@@ -1,5 +1,9 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, flash
+from flask_login import current_user, login_user, logout_user, login_required, LoginManager
+from flask_wtf import FlaskForm
+from wtforms import StringField
+from wtforms.validators import DataRequired
 import pymongo
 import dns
 from flask_pymongo import PyMongo
@@ -15,7 +19,19 @@ app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 
 mongo = PyMongo(app)
 
+
+
+
+"""
+App opens on home page
+"""
 @app.route('/')
+@app.route('/get_home')
+def get_home():
+    return render_template('index.html')
+
+
+
 @app.route('/get_categories')
 def get_categories():
     return render_template('categories.html', categories=mongo.db.categories.find())

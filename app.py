@@ -26,9 +26,21 @@ App opens on home page
 def index():
     return render_template('index.html')
 
+"""
+User Login
+"""
+
 @app.route('/login', methods=['POST'])
 def login():
-    return render_template('')
+    users = mongo.db.users
+    login_user = users.find_one({'name' : request.form['username']})
+    if login_user:
+        if bcrypt.hashpw(request.form['pass'].encode('utf-8'), login_user['password'].encode('utf-8')) == login_user['password'].encode('utf-8'):
+            session['username'] = request.form['username']
+            return redirect(url_for('index'))
+
+    return render_template('login.html')
+
 
 """
 Register Users to Site
@@ -48,6 +60,8 @@ def register():
         return 'That username already exists!'
 
     return render_template('signup.html')
+
+
 
 
 

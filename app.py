@@ -1,10 +1,7 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, flash
-from flask_login import current_user, login_user, logout_user, login_required, LoginManager
-from flask_wtf import FlaskForm
-from wtforms import StringField
-from wtforms.validators import DataRequired
+from flask import Flask, render_template, redirect, request, url_for, session
 import pymongo
+import bcrypt
 import dns
 from flask_pymongo import PyMongo
 import env
@@ -21,14 +18,36 @@ mongo = PyMongo(app)
 
 
 
-
 """
 App opens on home page
 """
 @app.route('/')
-@app.route('/get_home')
-def get_home():
+@app.route('/index')
+def index():
     return render_template('index.html')
+
+@app.route('/login', methods=['POST'])
+def login():
+    return render_template('')
+
+"""
+Register Users to Site
+"""
+@app.route('/register', methods=['POST', 'GET'])
+def register():
+    if request.method == 'POST':
+        users = mongo.db.users
+        existing_user = users.find_one({'name' : request.form['username']})
+
+        if existing_user is None:
+            hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
+            users.insert({'name' : request.form['username'], 'password' : hashpass})
+            session['username'] = request.form['username']
+            return redirect(url_for('index'))
+        
+        return 'That username already exists!'
+
+    return render_template('signup.html')
 
 
 

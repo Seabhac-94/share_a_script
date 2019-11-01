@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row about-us py-4">
+    <div class="col-md-6 offset-md-3 text-center">
+        <h2 class="main-heading sub-heading">Welcome!</h2>
+        <p class='second-font'>Thanks for joining.
+            Here at Share a Script, our mission is to encourage up-and-coming writers to share their work with the
+            world. If you're ready to share your work then click on "Share my Story" or if you want to have a look at
+            some other work by other artists, head on over to "View Scripts"
+        </p>
+    </div>
+</div>
+
+<div class="row py-4">
+    <div class="col-md-6 text-center">
+        <h3 class="main-heading sub-heading">Share Your Story</h3>
+        <button href="" class="call-to-action"><i class="fas fa-feather"></i></button>
+    </div>
+    <div class="col-md-6 text-center">
+        <h2 class="main-heading sub-heading">View Scripts</h2>
+        <a href="{{url_for('get_categories')}}"></a>
+            <button class="call-to-action"><i class="fas fa-scroll"></i></i></button>
+        </a>
+    </div>
+</div>
+
+<div class="row about-us py-4">
+
+</div>
+
+{% endblock %}

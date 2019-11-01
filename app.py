@@ -28,16 +28,18 @@ def index():
 User Login
 """
 
-@app.route('/login', methods=['GET'])
-def login():
-    users = mongo.db.users
-    login_user = users.find_one({'name' : request.form['username']})
-    if login_user:
-        if bcrypt.hashpw(request.form['pass'].encode('utf-8'), login_user['password'].encode('utf-8')) == login_user['password'].encode('utf-8'):
-            session['username'] = request.form['username']
-            return redirect(url_for('index'))
 
-    return redirect('login.html')
+@app.route('/login', methods=['POST', 'GET'])
+def login():
+    if request.method == 'POST':
+        users = mongo.db.users
+        login_user = users.find_one({'name' : request.form['username']})
+        if login_user:
+            if bcrypt.hashpw(request.form['pass'].encode('utf-8'), login_user['password']) == login_user['password']:
+                session['username'] = request.form['username']
+                return redirect(url_for('index'))
+    else:
+        return render_template('login.html')
 
 
 """

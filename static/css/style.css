@@ -1,6 +1,7 @@
 /* --- Font --- */
 
 @import url('https://fonts.googleapis.com/css?family=Satisfy&display=swap | 100, 200, 300, 400, 500, 600, 700');
+@import url('https://fonts.googleapis.com/css?family=Jomolhari&display=swap | 100, 200, 300, 400, 500, 600, 700');
 
 /* --- base.html --- */
 
@@ -23,8 +24,16 @@
 
 /* --- index.html --- */
 
+.sub-heading{
+    font-stretch: ultra-expanded;
+}
+
 .about-us {
-    background-color: silver;
+    background-color:rgb(192, 192, 192, 0.5);
+}
+
+.second-font {
+    font-family: 'Jomolhari', serif;
 }
 
 .call-to-action{
@@ -32,7 +41,12 @@
     border: none
 }
 .fa-feather{
-    font-size: 3rem;
+    font-size: 2rem;
+    color: black;
+}
+
+.fa-scroll {
+    font-size: 2rem;
     color: black;
 }
 

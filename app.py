@@ -71,19 +71,22 @@ def logout():
 
 @app.route('/share_a_script')
 def share_a_script():
-    return render_template('share_a_script.html', categories=mongo.db.categories.find())
-
-@app.route('/insert_script', methods=['POST'])
-def insert_script():
     if 'username' in session:
-        scripts = mongo.db.scripts
-        author = mongo.db.authors
-        author.insert_one({'first_name' : request.form['first_name'], 'last_name' : request.form['last_name']})
-        scripts.insert_one(request.form.to_dict())
-        return render_template('story_shared.html')
+        return render_template('share_a_script.html', categories=mongo.db.categories.find())
     else:
         return redirect(url_for('login'))
 
+
+@app.route('/insert_script', methods=['POST'])
+def insert_script():
+        scripts = mongo.db.scripts
+        author = mongo.db.authors
+        existing_author = author.find_one({'first_name' : request.form['first_name'], 'last_name' : request.form['last_name']})
+        if existing_author is None:
+            author.insert_one({'first_name' : request.form['first_name'], 'last_name' : request.form['last_name']})
+        scripts.insert_one(request.form.to_dict())
+        return render_template('story_shared.html')
+    
 @app.route('/get_categories')
 def get_categories():
     return render_template('categories.html', categories=mongo.db.categories.find())

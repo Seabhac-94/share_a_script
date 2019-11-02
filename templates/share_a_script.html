@@ -18,17 +18,21 @@
                     <input type="text" class="form-control" name="title" placeholder="Lord of the Rings">
                 </div>
                 <div class="form-group">
-                        <label for="chapter_name">Chapter Name</label>
-                        <input type="text" class="form-control" name="chapter_name" placeholder="Chpater One">
-                    </div>
+                    <label for="chapter_name">Chapter Name</label>
+                    <input type="text" class="form-control" name="chapter_name" placeholder="Chapter One">
+                </div>
                 <div class="form-group">
                     <label for="categories">Book Type</label>
                     <select id="category" name="category_name">
-                            <option value="" disabled selected>Choose Category</option>
-                            {% for categories in categories %}
-                            <option value="{{categories.category_name}}">{{categories.category_name}}</option>
-                            {% endfor %}
-                        </select>
+                        <option value="" disabled selected>Choose Category</option>
+                        {% for categories in categories %}
+                        <option value="{{categories.category_name}}">{{categories.category_name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="script">Copy and Paste your Script Here</label>
+                    <textarea rows="20" cols="50" class="form-control" name="script" placeholder="Once Upon a Time..."></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Share my Story</button>
             </form>

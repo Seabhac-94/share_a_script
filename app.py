@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, session
+from flask import Flask, render_template, redirect, request, url_for, session, flash
 import pymongo
 import bcrypt
 import dns
@@ -37,6 +37,8 @@ def login():
             if bcrypt.hashpw(request.form['pass'].encode('utf-8'), login_user['password']) == login_user['password']:
                 session['username'] = request.form['username']
                 return redirect(url_for('index'))
+        else:
+            return "Incorrect username/password"
     else:
         return render_template('login.html')
 

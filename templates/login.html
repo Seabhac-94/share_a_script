@@ -1,17 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="container">
+<div class="container py-2 second-font">
     <div class="row">
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-6 offset-3 text-center">
+            <h2 class="main-heading sub-heading">Welcome!</h2>
+            <p class=''>To start sharing your stories, please login.</p>
+        </div>
+        <div class="col-6 offset-3">
             <form method="POST" action="{{ url_for('login') }}">
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input id="username" type="text" class="form-control" name="username" placeholder="Username">
+                    <input id="username" type="text" class="form-control" name="username" placeholder="writer24">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input id="password" type="password" class="form-control" name="pass" placeholder="Password">
+                    <input id="password" type="password" class="form-control" name="pass" placeholder="password123">
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Log In</button>
             </form>

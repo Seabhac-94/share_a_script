@@ -59,6 +59,14 @@ def register():
 
     return render_template('signup.html')
 
+"""
+Logs Users Out of Site
+"""
+@app.route('/logout')
+def logout():
+    session.pop('username')
+    return redirect(url_for('index'))
+
 @app.route('/share_a_script')
 def share_a_script():
     return render_template('share_a_script.html', categories=mongo.db.categories.find())
@@ -72,7 +80,7 @@ def insert_script():
         scripts.insert_one(request.form.to_dict())
         return render_template('story_shared.html')
     else:
-        return redirect(url_for('register'))
+        return redirect(url_for('login'))
 
 @app.route('/get_categories')
 def get_categories():

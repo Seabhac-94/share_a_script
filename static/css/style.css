@@ -40,6 +40,9 @@
     background-color: transparent;
     border: none
 }
+
+/* --- font awesome icons --- */
+
 .fa-feather{
     font-size: 2rem;
     color: black;
@@ -53,5 +56,10 @@
 .fa-home {
     font-size: 2rem;
     color: black;
+}
+
+.fa-book {
+    font-size: 5rem;
+    color: brown;
 }
 

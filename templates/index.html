@@ -11,12 +11,14 @@
 <div class="row py-4">
     <div class="col-md-6 text-center">
         <h3 class="main-heading sub-heading">Share Your Story</h3>
-        <button href="" class="call-to-action"><i class="fas fa-feather"></i></button>
+        <a href="{{url_for('share_a_script')}}">
+            <button href="" class="call-to-action"><i class="fas fa-feather"></i></button>
+        </a>
     </div>
     <div class="col-md-6 text-center">
         <h2 class="main-heading sub-heading">View Scripts</h2>
         <a href="{{url_for('get_categories')}}">
-            <button class="call-to-action"><i class="fas fa-scroll"></i></i></button>
+            <button class="call-to-action"><i class="fas fa-scroll"></i></button>
         </a>
     </div>
 </div>

@@ -27,7 +27,6 @@ def index():
 """
 User Login
 """
-
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
@@ -51,7 +50,6 @@ def welcome_back():
 """
 Register Users to Site
 """
-
 @app.route('/register', methods=['POST', 'GET'])
 def register():
     if request.method == 'POST':
@@ -94,7 +92,7 @@ def insert_script():
             author.insert_one({'first_name' : request.form['first_name'], 'last_name' : request.form['last_name']})
         scripts.insert_one(request.form.to_dict())
         return render_template('story_shared.html')
-    
+
 @app.route('/get_categories')
 def get_categories():
     return render_template('categories.html', categories=mongo.db.categories.find())

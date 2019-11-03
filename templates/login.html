@@ -17,6 +17,15 @@
                     <label for="password">Password</label>
                     <input id="password" type="password" class="form-control" name="pass" placeholder="password123">
                 </div>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <div class="text-center second-font flash">
+                    {% for message in messages %}
+                    <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endwith %}
                 <button type="submit" class="btn btn-primary btn-block">Log In</button>
             </form>
             <br>

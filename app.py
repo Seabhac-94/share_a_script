@@ -37,10 +37,9 @@ def login():
             if bcrypt.hashpw(request.form['pass'].encode('utf-8'), login_user['password']) == login_user['password']:
                 session['username'] = request.form['username']
                 return redirect(url_for('index'))
-        else:
-            return "Incorrect username/password"
-    else:
-        return render_template('login.html')
+            else:
+                flash("Incorrect username/password")
+    return render_template('login.html')
 
 """
 Register Users to Site
@@ -49,16 +48,15 @@ Register Users to Site
 def register():
     if request.method == 'POST':
         users = mongo.db.users
-        existing_user = users.find_one({'name' : request.form['username']})
+        existing_user = users.find_one({'username' : request.form['username']})
 
         if existing_user is None:
             hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
             users.insert_one({'first_name' : request.form['first_name'], 'last_name' : request.form['last_name'], 'username' : request.form['username'], 'password' : hashpass})
             session['username'] = request.form['username']
             return render_template('welcome.html')
-        
-        return 'That username already exists!'
-
+        else:
+            flash("Username already taken!")    
     return render_template('signup.html')
 
 """

@@ -36,14 +36,22 @@ def login():
         if login_user:
             if bcrypt.hashpw(request.form['pass'].encode('utf-8'), login_user['password']) == login_user['password']:
                 session['username'] = request.form['username']
-                return redirect(url_for('index'))
+                return redirect(url_for('welcome_back'))
             else:
                 flash("Incorrect username/password")
     return render_template('login.html')
 
 """
+Welcome back page render
+"""
+@app.route('/welcome_back')
+def welcome_back():
+    return render_template('welcomeback.html')
+
+"""
 Register Users to Site
 """
+
 @app.route('/register', methods=['POST', 'GET'])
 def register():
     if request.method == 'POST':
@@ -67,13 +75,15 @@ def logout():
     session.pop('username')
     return redirect(url_for('index'))
 
+"""
+Brings users to share_a_script.html or login page depending on active session
+"""
 @app.route('/share_a_script')
 def share_a_script():
     if 'username' in session:
         return render_template('share_a_script.html', categories=mongo.db.categories.find())
     else:
         return redirect(url_for('login'))
-
 
 @app.route('/insert_script', methods=['POST'])
 def insert_script():

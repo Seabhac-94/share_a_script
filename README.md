@@ -75,7 +75,7 @@ This site was developed through constant testing of functionality. The below tes
 1. After writing initial code for user, create a simple form for login - username and password are only required.
 2. It was initially found that the login.html page wouldn't render due to a method issue. Upon further trouble shooting, the code was found to have 2 major issues - incorrect method was being used for submitting the form, and a 'return redirect('login.html') ' was being used, instead of 'return render_template('login.html')' - this caused an issue as the site was trying to redirect to a page that hadn;t yet been rendered.
 3. The login page is now rendering so a basic login test was done using a username and password used to register - the test failed with a "AttributeError: 'bytes' object has no attribute 'encode' " - further research was done on the Bcrypt module, and it was found that there was 2 .encode(utf-8) inserted where they shouldn't have been. The code being used to compare the passwords was of an older version and had since been updated.
-4. The test was repeated and passed. Once the user had logged in successfully, they were redirected to index. Later this was updated so that the user was redirected to a welcome page.s
+4. The test was repeated and passed. Once the user had logged in successfully, they were redirected to index. Later this was updated so that the user was redirected to a welcome page.
 
 
 ##### Testing Procedure for Responsiveness

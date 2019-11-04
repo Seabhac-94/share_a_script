@@ -93,9 +93,20 @@ def insert_script():
         scripts.insert_one(request.form.to_dict())
         return render_template('story_shared.html')
 
+"""
+Display categories.html
+"""
 @app.route('/get_categories')
 def get_categories():
     return render_template('categories.html', categories=mongo.db.categories.find())
+
+"""
+Display Scripts in particular category
+"""
+
+@app.route('/view_scripts')
+def view_scripts():
+    return render_template('scripts.html', scripts=mongo.db.scripts.find())
 
 @app.route('/get_authors')
 def get_authors():

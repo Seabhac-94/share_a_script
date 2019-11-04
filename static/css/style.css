@@ -69,3 +69,9 @@
 .flash {
     color: red;
 }
+
+/* --- scripts.html --- */
+
+.scriptP {
+    display: none;
+}

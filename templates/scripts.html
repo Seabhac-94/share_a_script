@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row">
+        {% for scripts in scripts %}
+        {% if scripts.category_name == 'Fiction - Horror' %}
+        <div class="col-4 text-center script">
+            <i class="fas fa-book py-2"></i>
+            <h4 class="main-heading sub-heading"> {{ scripts.title }} - {{scripts.chapter_name}} </h4>
+            <p class="scriptP">{{scripts.script}}</p>
+            <p><small>By {{scripts.first_name}} {{scripts.last_name}}</small></p>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

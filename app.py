@@ -3,6 +3,7 @@ from flask import Flask, render_template, redirect, request, url_for, session, f
 import pymongo
 import bcrypt
 import dns
+import env
 from flask_pymongo import PyMongo
 from pymongo import MongoClient
 from bson.objectid import ObjectId
@@ -105,7 +106,8 @@ Display Scripts in particular category
 
 @app.route('/view_scripts')
 def view_scripts():
-    return render_template('scripts.html', scripts=mongo.db.scripts.find())
+    scripts=list(mongo.db.scripts.find())
+    return render_template('scripts.html', scripts=scripts)
 
 @app.route('/get_authors')
 def get_authors():

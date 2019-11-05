@@ -4,7 +4,6 @@ import pymongo
 import bcrypt
 import dns
 from flask_pymongo import PyMongo
-import env
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 

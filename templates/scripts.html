@@ -5,32 +5,66 @@
     {% for each_script in scripts %}
     {% if each_script.category_name == 'Fiction - Horror' %}
     <div class="col-4 text-center script">
-        <i class="fas fa-book py-2"></i>
-        <h4 class="main-heading sub-heading" data-toggle="modal" data-target="#{{ each_script.id }}"> {{ each_script.title }} -
-            {{each_script.chapter_name}} </h4>
-    </div>
-    <div class="modal fade" id="{{ each_script.id }}" tabindex="-1" role="dialog" aria-labelledby="scriptTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="scriptTitle">{{ each_script.title }} - {{each_script.chapter_name}}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" id="#{{ each_script.id }}">
-                    {{each_script.script}}
-                </div>
-                <div class="modal-footer">
-                    <p><small>By {{each_script.first_name}} {{each_script.last_name}}</small></p>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+       
+        <div data-toggle="modal" data-target='#{{scripts.id}}'>
+            <i class=" fas fa-book py-2"></i>
+            <h4 class="main-heading sub-heading"> {{ each_script.title }} -
+                {{each_script.chapter_name}}
+            </h4>
+        </div>
+        <div class="modal fade" id='{{scripts.id}}' tabindex="-1" role="dialog" aria-labelledby="myTitle-{{scripts.id}}"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id='myTitle-{{scripts.id}}'>{{ each_script.title }} - {{each_script.chapter_name}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {{each_script.script}}
+                    </div>
+                    <div class="modal-footer">
+                        <p><small>By {{each_script.first_name}} {{each_script.last_name}}</small></p>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
     {% endif %}
     {% endfor %}
 </div>
 
 {% endblock %}
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

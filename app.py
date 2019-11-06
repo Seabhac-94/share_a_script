@@ -35,7 +35,7 @@ def login():
         if login_user:
             if bcrypt.hashpw(request.form['pass'].encode('utf-8'), login_user['password']) == login_user['password']:
                 session['username'] = request.form['username']
-                return redirect(url_for('welcome_back'))
+                return redirect(url_for('welcome'))
             else:
                 flash("Incorrect username/password")
     return render_template('login.html')
@@ -43,9 +43,10 @@ def login():
 """
 Welcome back page render
 """
-@app.route('/welcome_back')
-def welcome_back():
-    return render_template('welcomeback.html')
+@app.route('/welcome')
+def welcome():
+    username = session["username"]
+    return render_template('welcome.html', username=username)
 
 """
 Register Users to Site
@@ -60,7 +61,7 @@ def register():
             hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
             users.insert_one({'first_name' : request.form['first_name'], 'last_name' : request.form['last_name'], 'username' : request.form['username'], 'password' : hashpass})
             session['username'] = request.form['username']
-            return render_template('welcome.html')
+            return redirect('welcome.html')
         else:
             flash("Username already taken!")    
     return render_template('signup.html')

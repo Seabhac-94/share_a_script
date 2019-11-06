@@ -25,6 +25,16 @@ def index():
     return render_template('index.html')
 
 """
+Brings users to share_a_script.html or login page depending on active session
+"""
+@app.route('/share_a_script')
+def share_a_script():
+    if 'username' in session:
+        return render_template('share_a_script.html', categories=mongo.db.categories.find())
+    else:
+        return redirect(url_for('login'))
+
+"""
 User Login
 """
 @app.route('/login', methods=['POST', 'GET'])
@@ -75,15 +85,8 @@ def logout():
     return redirect(url_for('index'))
 
 """
-Brings users to share_a_script.html or login page depending on active session
+Allows users to share a script
 """
-@app.route('/share_a_script')
-def share_a_script():
-    if 'username' in session:
-        return render_template('share_a_script.html', categories=mongo.db.categories.find())
-    else:
-        return redirect(url_for('login'))
-
 @app.route('/insert_script', methods=['POST'])
 def insert_script():
         scripts = mongo.db.scripts
@@ -93,6 +96,7 @@ def insert_script():
             author.insert_one({'first_name' : request.form['first_name'], 'last_name' : request.form['last_name']})
         scripts.insert_one(request.form.to_dict())
         return render_template('story_shared.html')
+
 
 """
 Display categories.html
@@ -120,6 +124,14 @@ def my_account():
     username = session["username"]
     scripts=list(mongo.db.scripts.find())
     return render_template('my_account.html', username=username, scripts=scripts)
+
+"""
+Delete a script from my_account
+"""
+@app.route('/delete_script/<script_id>')
+def delete_script(script_id):
+    mongo.db.scripts.remove({'_id': ObjectId(script_id)})
+    return redirect(url_for('my_account'))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), 

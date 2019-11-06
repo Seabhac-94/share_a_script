@@ -98,12 +98,12 @@ Display categories.html
 """
 @app.route('/get_categories')
 def get_categories():
-    return render_template('categories.html', categories=mongo.db.categories.find())
+    categories=list(mongo.db.categories.find())
+    return render_template('categories.html', categories=categories)
 
 """
 Display Scripts in particular category
 """
-
 @app.route('/view_scripts')
 def view_scripts():
     scripts=list(mongo.db.scripts.find())
@@ -111,8 +111,14 @@ def view_scripts():
 
 @app.route('/get_authors')
 def get_authors():
-    return render_template('authors.html', authors=mongo.db.authors.find())
+    authors=list(mongo.db.authors.find())
+    return render_template('authors.html', authors=authors)
 
+@app.route('/my_account')
+def my_account():
+    username = session["username"]
+    scripts=list(mongo.db.scripts.find())
+    return render_template('my_account.html', username=username, scripts=scripts)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), 

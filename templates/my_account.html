@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Welcome {{ username }}</h2>
+
+<p>Here's some of your work...</p>
+{% for my_script in scripts %}
+{% if my_script.uploaded_by == username %}
+<h6>{{ my_script.title }} - {{my_script.chapter_name}}</h6>
+{% endif %}
+{% endfor %}
+
+{% endblock %}

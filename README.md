@@ -27,6 +27,7 @@ The following features have been implemented already:
 4. User Logout: Enables the user to end the session.
 5. Navbars: The navbars are designed to change depending on whether or not users are logged in or not.
 6. Share Your Story: Once users are logged in they will have access to the Share Your Story form. This form will give the user an option of inputing Author's First and Last Name - this part of the form in particular is important as it gives the user an option of giving a psuedo-name or "Anonymous".
+7. Delete Script: Users have the ability to delete scripts that only they have shared from the My Account section
 
 
 #### Possible Future Features 
@@ -76,6 +77,12 @@ This site was developed through constant testing of functionality. The below tes
 2. It was initially found that the login.html page wouldn't render due to a method issue. Upon further trouble shooting, the code was found to have 2 major issues - incorrect method was being used for submitting the form, and a 'return redirect('login.html') ' was being used, instead of 'return render_template('login.html')' - this caused an issue as the site was trying to redirect to a page that hadn;t yet been rendered.
 3. The login page is now rendering so a basic login test was done using a username and password used to register - the test failed with a "AttributeError: 'bytes' object has no attribute 'encode' " - further research was done on the Bcrypt module, and it was found that there was 2 .encode(utf-8) inserted where they shouldn't have been. The code being used to compare the passwords was of an older version and had since been updated.
 4. The test was repeated and passed. Once the user had logged in successfully, they were redirected to index. Later this was updated so that the user was redirected to a welcome page.
+
+##### Sharing a Script
+
+##### Deleting a Script
+
+
 
 
 ##### Testing Procedure for Responsiveness

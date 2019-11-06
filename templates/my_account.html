@@ -1,18 +1,33 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h2>Hi {{ username }}</h2>
-
-<p>Here's some of your work...</p>
-{% for script in scripts %}
-{% if script.uploaded_by == username %}
-<div>
-<h6>{{ script.title }} - {{ script.chapter_name }}</h6>
-<button>
-<a href="{{url_for('delete_script', script_id=script._id)}}" class="btn btn_small">Del</a>
-</button>
+<div class="row py-4">
+    <div class="col-10 offset-1 col-lg-4 offset-lg-4 text-center">
+        <h2 class='main-heading sub-heading'> Hi {{ username }}</h2>
+        <p class='second-font'>Here's some of your work...</p>
+    </div>
 </div>
-{% endif %}
-{% endfor %}
+
+<div class="row">
+    <div class="col-10 offset-1 col-lg-8 offset-lg-2 ">
+        <ul class="list-group">
+            {% for script in scripts %}
+            {% if script.uploaded_by == username %}
+            <li class="list-group-item list-group-item-secondary">
+                <div class="text-left">
+                    {{ script.title }} - {{ script.chapter_name }}
+                </div>
+                <div class="text-right">
+                    <button type="button" class="btn btn-light">
+                        <a href="{{url_for('delete_script', script_id=script._id)}}">Delete</a>
+                    </button>
+                </div>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
 
 {% endblock %}

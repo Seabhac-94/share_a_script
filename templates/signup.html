@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<!--Registration form-->
 <div class="container py-2 second-font">
     <div class="row">
         <div class="col-md-6 offset-md-3 text-center">
@@ -17,6 +18,7 @@
                     <label for="last_name">Last Name</label>
                     <input type="text" class="form-control" name="last_name" placeholder="Doe">
                 </div>
+                <!--Flashed messages for username taken-->
                 {% with messages = get_flashed_messages() %}
                 {% if messages %}
                 <div class="text-center second-font flash">

@@ -99,13 +99,6 @@ def insert_script():
         scripts.insert_one(request.form.to_dict())
         return render_template('story_shared.html')
 
-"""
-Display categories.html
-"""
-@app.route('/get_categories')
-def get_categories():
-    categories=list(mongo.db.categories.find())
-    return render_template('categories.html', categories=categories)
 
 """
 Display Scripts in particular category

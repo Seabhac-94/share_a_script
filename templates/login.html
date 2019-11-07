@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<!--Login Form-->
 <div class="container py-2 second-font">
     <div class="row">
         <div class="col-6 offset-3 text-center">
@@ -17,6 +18,7 @@
                     <label for="password">Password</label>
                     <input id="password" type="password" class="form-control" name="pass" placeholder="password123">
                 </div>
+                <!--Flashed messages for incorrect username or password-->
                 {% with messages = get_flashed_messages() %}
                 {% if messages %}
                 <div class="text-center second-font flash">

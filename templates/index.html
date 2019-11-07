@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<!--Mission Statement-->
 <div class="row about-us py-4">
     <div class="col-md-6 offset-md-3 text-center">
         <h2 class="main-heading sub-heading">Our Mission</h2>
@@ -8,6 +9,7 @@
     </div>
 </div>
 
+<!--Links-->
 <div class="row py-4">
     <div class="col-md-6 text-center">
         <h3 class="main-heading sub-heading">Share Your Story</h3>
@@ -17,7 +19,7 @@
     </div>
     <div class="col-md-6 text-center">
         <h2 class="main-heading sub-heading">View Scripts</h2>
-        <a href="{{url_for('get_categories')}}">
+        <a href="{{url_for('view_scripts')}}">
             <button class="call-to-action"><i class="fas fa-scroll"></i></button>
         </a>
     </div>

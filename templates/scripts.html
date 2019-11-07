@@ -12,11 +12,9 @@
                 {{each_script.chapter_name}}
             </h4>
         </div>
-
-
-        <div class="modal fade" id='id_{{each_script._id}}' tabindex="-1" role="dialog" aria-labelledby="my_{{each_script._id}}"
+        <div class="modal fade bd-example-modal-lg" id='id_{{each_script._id}}' tabindex="-1" role="dialog" aria-labelledby="my_{{each_script._id}}"
             aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id='my_{{each_script._id}}'>{{ each_script.title }} - {{each_script.chapter_name}}</h5>
@@ -30,17 +28,52 @@
                     <div class="modal-footer">
                         <p><small>By {{each_script.first_name}} {{each_script.last_name}}</small></p>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
         </div>
-
-
     </div>
 
     {% endif %}
     {% endfor %}
 </div>
+
+<div class="row">
+        {% for each_script in scripts %}
+        {% if each_script.category_name == 'Fiction - Comedy' %}
+        <div class="col-4 text-center script">
+           
+            <div data-toggle="modal" data-target='#id_{{each_script._id}}'>
+                <i class=" fas fa-book py-2"></i>
+                <h4 class="main-heading sub-heading"> {{ each_script.title }} -
+                    {{each_script.chapter_name}}
+                </h4>
+            </div>
+            <div class="modal fade bd-example-modal-lg" id='id_{{each_script._id}}' tabindex="-1" role="dialog" aria-labelledby="my_{{each_script._id}}"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id='my_{{each_script._id}}'>{{ each_script.title }} - {{each_script.chapter_name}}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            {{each_script.script}}
+                        </div>
+                        <div class="modal-footer">
+                            <p><small>By {{each_script.first_name}} {{each_script.last_name}}</small></p>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        {% endif %}
+        {% endfor %}
+    </div>
+    
 
 {% endblock %}

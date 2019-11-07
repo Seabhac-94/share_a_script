@@ -30,8 +30,8 @@ Brings users to share_a_script.html or login page depending on active session
 @app.route('/share_a_script')
 def share_a_script():
     categories=mongo.db.categories.find()
-    username = 'username' in session
-    if username:
+    if 'username' in session:
+        username = session["username"]
         return render_template('share_a_script.html', categories=categories, username=username)
     else:
         return redirect(url_for('login'))

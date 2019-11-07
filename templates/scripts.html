@@ -6,18 +6,20 @@
     {% if each_script.category_name == 'Fiction - Horror' %}
     <div class="col-4 text-center script">
        
-        <div data-toggle="modal" data-target='#{{scripts.id}}'>
+        <div data-toggle="modal" data-target='#id_{{each_script._id}}'>
             <i class=" fas fa-book py-2"></i>
             <h4 class="main-heading sub-heading"> {{ each_script.title }} -
                 {{each_script.chapter_name}}
             </h4>
         </div>
-        <div class="modal fade" id='{{scripts.id}}' tabindex="-1" role="dialog" aria-labelledby="myTitle-{{scripts.id}}"
+
+
+        <div class="modal fade" id='id_{{each_script._id}}' tabindex="-1" role="dialog" aria-labelledby="my_{{each_script._id}}"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id='myTitle-{{scripts.id}}'>{{ each_script.title }} - {{each_script.chapter_name}}</h5>
+                        <h5 class="modal-title" id='my_{{each_script._id}}'>{{ each_script.title }} - {{each_script.chapter_name}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -33,6 +35,8 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 
     {% endif %}
@@ -40,4 +44,3 @@
 </div>
 
 {% endblock %}
-

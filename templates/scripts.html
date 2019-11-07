@@ -1,79 +1,72 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="row">
-    {% for each_script in scripts %}
-    {% if each_script.category_name == 'Fiction - Horror' %}
-    <div class="col-4 text-center script">
-       
-        <div data-toggle="modal" data-target='#id_{{each_script._id}}'>
-            <i class=" fas fa-book py-2"></i>
-            <h4 class="main-heading sub-heading"> {{ each_script.title }} -
-                {{each_script.chapter_name}}
-            </h4>
+
+<! --- Horizontal List --- >
+<div class="row py-5">
+    <div class="col-12">
+        <div id="list-example" class="list-group list-group-horizontal pb-5">
+            {% for each_category in categories %}
+            <a class="list-group-item list-group-item-action"
+                href="#cat_{{each_category._id}}">{{each_category.category_name}}</a>
+            {% endfor %}
         </div>
-        <div class="modal fade bd-example-modal-lg" id='id_{{each_script._id}}' tabindex="-1" role="dialog" aria-labelledby="my_{{each_script._id}}"
-            aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id='my_{{each_script._id}}'>{{ each_script.title }} - {{each_script.chapter_name}}</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        {{each_script.script}}
-                    </div>
-                    <div class="modal-footer">
-                        <p><small>By {{each_script.first_name}} {{each_script.last_name}}</small></p>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+</div>
+
+
+<div class="row">
+    {% for each_category in categories %}
+    <div class="col-12 text-center">
+        <div id="cat_{{each_category._id}}">{{each_category.category_name}}</div>
+        <div class="row">
+            {% for each_script in scripts %}
+            {% if each_category.category_name == each_script.category_name  %}
+            <div class="col-4 text-center">
+                <div data-toggle="modal" data-target='#id_{{each_script._id}}'>
+                    <i class=" fas fa-book-open py-2"></i>
+                    <h6 class=""> {{ each_script.title }} -
+                        {{each_script.chapter_name}}
+                    </h6>
+                </div>
+                <div class="modal fade bd-example-modal-lg" id='id_{{each_script._id}}' tabindex="-1" role="dialog"
+                    aria-labelledby="my_{{each_script._id}}" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id='my_{{each_script._id}}'>{{ each_script.title }} -
+                                    {{each_script.chapter_name}}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                {{each_script.script}}
+                            </div>
+                            <div class="modal-footer">
+                                <p><small>By {{each_script.first_name}} {{each_script.last_name}}</small></p>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            {% endif %}
+            {% endfor %}
         </div>
-    </div>
 
-    {% endif %}
+    </div>
     {% endfor %}
 </div>
 
-<div class="row">
-        {% for each_script in scripts %}
-        {% if each_script.category_name == 'Fiction - Comedy' %}
-        <div class="col-4 text-center script">
-           
-            <div data-toggle="modal" data-target='#id_{{each_script._id}}'>
-                <i class=" fas fa-book py-2"></i>
-                <h4 class="main-heading sub-heading"> {{ each_script.title }} -
-                    {{each_script.chapter_name}}
-                </h4>
-            </div>
-            <div class="modal fade bd-example-modal-lg" id='id_{{each_script._id}}' tabindex="-1" role="dialog" aria-labelledby="my_{{each_script._id}}"
-                aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id='my_{{each_script._id}}'>{{ each_script.title }} - {{each_script.chapter_name}}</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            {{each_script.script}}
-                        </div>
-                        <div class="modal-footer">
-                            <p><small>By {{each_script.first_name}} {{each_script.last_name}}</small></p>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        {% endif %}
-        {% endfor %}
-    </div>
-    
 
-{% endblock %}
+
+
+
+<! --- Fiction - Horror --->
+
+
+
+
+
+    {% endblock %}

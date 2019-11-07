@@ -112,8 +112,9 @@ Display Scripts in particular category
 """
 @app.route('/view_scripts')
 def view_scripts():
+    categories = list(mongo.db.categories.find())
     scripts=list(mongo.db.scripts.find())
-    return render_template('scripts.html', scripts=scripts)
+    return render_template('scripts.html', scripts=scripts, categories=categories)
 
 @app.route('/get_authors')
 def get_authors():

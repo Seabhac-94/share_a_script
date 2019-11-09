@@ -73,3 +73,10 @@
 
 /* --- scripts.html --- */
 
+.book-btn {
+    height: 15rem;
+    width: 9rem;
+    background-color: brown;
+    color: oldlace
+
+}

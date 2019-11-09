@@ -4,11 +4,11 @@
 
 <!---Horizontal List--->
 <div class="row py-5">
-    <div class="col-12">
-        <div id="list-example" class="list-group list-group-horizontal pb-5">
+    <div class=" col-12">
+        <div id="list-example" class="list-group list-group-horizontal-lg pb-5">
             {% for each_category in categories %}
-            <a class="list-group-item list-group-item-action"
-                href="#cat_{{each_category._id}}"><i class="fas fa-book py-2"></i> {{each_category.category_name}}</a>
+            <a class="list-group-item list-group-item-action" href="#cat_{{each_category._id}}"><i
+                    class="fas fa-book py-2"></i> {{each_category.category_name}}</a>
             {% endfor %}
         </div>
     </div>
@@ -18,17 +18,45 @@
 <div class="row">
     {% for each_category in categories %}
     <div class="col-12 text-center">
-        <div id="cat_{{each_category._id}}">{{each_category.category_name}}</div>
+
+        <!--Vertical List of Categories-->
+        <div id="cat_{{each_category._id}}">
+            {{each_category.category_name}}
+        </div>
+
+        <!--Modal set-up-->
         <div class="row">
             {% for each_script in scripts %}
             {% if each_category.category_name == each_script.category_name  %}
-            <div class="col-4 text-center">
-                <div data-toggle="modal" data-target='#id_{{each_script._id}}'>
-                    <i class=" fas fa-book-open py-2"></i>
-                    <h6 class=""> {{ each_script.title }} -
-                        {{each_script.chapter_name}}
-                    </h6>
+
+            <div class="col-sm-6 col-md-4 inline-block text-center py-sm-2 py-md-4">
+
+                <!--Titles of Books/Scripts-->
+
+                <button class="btn book-btn align-top" type="button" data-toggle="collapse"
+                    data-target="#content_{{each_script._id}}" aria-expanded="false" aria-controls="collapseExample">
+                    {{ each_script.title }}
+                    <p class="pt-1"><small>{{each_script.first_name}} {{each_script.last_name}}</small></p>
+                </button>
+
+
+
+
+                <!--Chapters in that Book-->
+                <div class="collapse pt-2" id="content_{{each_script._id}}">
+                    <button type="button" class="btn btn-secondary">
+                       
+                        <div data-toggle="modal" data-target='#id_{{each_script._id}}'>
+                            <h6 class="">
+                                    <i class="fas fa-book"></i> {{each_script.chapter_name}}
+                            </h6>
+                        </div>
+                    </button>
                 </div>
+
+
+
+                <!--MODAL-->
                 <div class="modal fade bd-example-modal-lg" id='id_{{each_script._id}}' tabindex="-1" role="dialog"
                     aria-labelledby="my_{{each_script._id}}" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
@@ -50,11 +78,16 @@
                         </div>
                     </div>
                 </div>
+                <!--./MODAL-->
             </div>
+
             {% endif %}
             {% endfor %}
         </div>
     </div>
     {% endfor %}
 </div>
-    {% endblock %}
+
+
+
+{% endblock %}

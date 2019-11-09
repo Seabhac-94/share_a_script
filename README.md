@@ -102,6 +102,11 @@ This site was developed through constant testing of functionality. The below tes
 
 #### Sources
 
+
+https://www.bookscool.com/en/index.php
+https://zelalemkibret.files.wordpress.com/2012/01/the-autobiography-of-nelson-mandela.pdf
+
+
 #### Media
 
 Background Image - https://www.enigma-mag.com/5-books-to-read-this-month/stack-of-books-great-education/

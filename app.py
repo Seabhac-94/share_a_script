@@ -73,7 +73,7 @@ def register():
             hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
             users.insert_one({'first_name' : request.form['first_name'], 'last_name' : request.form['last_name'], 'username' : request.form['username'], 'password' : hashpass})
             session['username'] = request.form['username']
-            return redirect('welcome.html')
+            return redirect(url_for('welcome'))
         else:
             flash("Username already taken!")    
     return render_template('signup.html')
@@ -107,7 +107,8 @@ Display Scripts in particular category
 def view_scripts():
     categories = list(mongo.db.categories.find())
     scripts=list(mongo.db.scripts.find())
-    return render_template('scripts.html', scripts=scripts, categories=categories)
+    titles=list(mongo.db.titles.find())
+    return render_template('scripts.html', scripts=scripts, categories=categories, titles=titles)
 
 @app.route('/get_authors')
 def get_authors():

@@ -18,8 +18,19 @@
 }
 
 .jumbotron {
-    background-color: silver;
+    background-color:transparent;
+    color: #fafafa;
+}
+
+.navbar{
     opacity: 0.8;
+}
+.dropdown-menu {
+    background-color: silver;
+}
+
+.main-bg{
+    background-color: #fafafa; 
 }
 
 /* --- index.html --- */
@@ -78,5 +89,19 @@
     width: 9rem;
     background-color: brown;
     color: oldlace
+}
 
+.modal-header, .modal-footer {
+    background-color: silver;
+    opacity: 0.8;
+}
+
+
+
+/* --- Media Queries --- */
+
+@media(min-width: 1200px){
+.jumbotron {
+    color: black;
+}
 }

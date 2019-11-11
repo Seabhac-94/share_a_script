@@ -9,14 +9,14 @@
             <p class=''>To start sharing your stories, please register using the form below.</p>
         </div>
         <div class="col-md-6 offset-md-3">
-            <form method="POST" action="{{ url_for('register') }}">
+            <form class="was-validated" method="POST" action="{{ url_for('register') }}">
                 <div class="form-group">
                     <label for="first_name">First Name</label>
-                    <input type="text" class="form-control" name="first_name" placeholder="John">
+                    <input type="text" class="form-control" name="first_name" placeholder="John" required>
                 </div>
                 <div class="form-group">
                     <label for="last_name">Last Name</label>
-                    <input type="text" class="form-control" name="last_name" placeholder="Doe">
+                    <input type="text" class="form-control" name="last_name" placeholder="Doe" required>
                 </div>
                 <!--Flashed messages for username taken-->
                 {% with messages = get_flashed_messages() %}
@@ -30,11 +30,11 @@
                 {% endwith %}
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" name="username" placeholder="johhnydoe284">
+                    <input type="text" class="form-control" name="username" placeholder="johhnydoe284" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" name="pass" placeholder="password123">
+                    <input type="password" class="form-control" name="pass" placeholder="password123" required>
                 </div>
                 <button type="submit" class="btn btn-secondary btn-block">Sign-Up</button>
             </form>

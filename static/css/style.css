@@ -34,6 +34,13 @@
     background-color: #fafafa; 
 }
 
+footer {
+    
+    opacity: 0.6;
+    padding: 15px 10px;
+    font-size: 1.5rem;
+}
+
 /* --- index.html --- */
 
 .sub-heading{

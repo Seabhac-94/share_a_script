@@ -1,15 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<!--Login Form-->
+
 <div class="container py-2 second-font">
-    <div class="row">
-        <div class="col-6 offset-3 text-center">
+    <div class="row pt-2">
+        <div class="col-md-6 text-center">
             <h2 class="main-heading sub-heading">Welcome!</h2>
-            <p class=''>To start sharing your stories, please login.</p>
+            <p class='second-font'>To start sharing your stories, please login.</p>
         </div>
-        <div class="col-6 offset-3">
-            <form  method="POST" action="{{ url_for('login') }}">
+        <div class="d-none d-md-block col-6 text-center">
+                <h2 class="main-heading sub-heading">One of our picks of the week!</h2>
+            </div>
+    </div>
+    <div class="row pt-3 pb-5">
+        <!--Login Form-->
+        <div class="col-md-6">
+            <form method="POST" action="{{ url_for('login') }}">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input id="username" type="text" class="form-control" name="username" placeholder="writer24">
@@ -35,6 +41,21 @@
                 Don't have an account? <a href="{{ url_for('register') }}">Sign up here</a>.
             </div>
         </div>
+        <!--Script Sample-->
+        <div class="d-none d-md-block col-6">
+            <h5 class="main-heading">The Curious Incident of the Dog in the Night-Time - Chapter One</h5>
+            <p class="second-font">2. It was 7 minutes after midnight. The dog was lying on the grass in the middle
+                of the lawn in front of Mrs. Shears's house. Its eyes were closed. It looked as if it was running on
+                its side, the way dogs run when they think they are chasing a cat in a dream. But the dog was not
+                running or asleep. The dog was dead. There was a garden fork sticking out of the dog. The points of
+                the fork must have gone all the way through the dog and into the ground because the fork had not
+                fallen over. I decided that the dog was probably killed with the fork because I could not see any
+                other wounds in the dog and I do not think you would stick a garden fork into a dog after it had
+                died for some other reason, like cancer, for example, or a road accident. <a
+                    href="{{url_for('view_scripts')}}">Read More</a>
+            </p>
+        </div>
     </div>
 </div>
 {% endblock %}
+

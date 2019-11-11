@@ -16,10 +16,10 @@
 <body>
     <header>
         <!--Standard Nav-->
-        <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-secondary second-font">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-secondary second-font ">
             <div class="d-none d-md-block">
-            <a class="navbar-brand" href="{{url_for('index')}}">Share a Script</a>
-        </div>
+                <a class="navbar-brand" href="{{url_for('index')}}">Share a Script</a>
+            </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -35,16 +35,16 @@
                         <a class="nav-link" href="{{url_for('register')}}">Sign-Up</a>
                     </li>
                     <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Menu
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{url_for('share_a_script')}}">Share Your Story</a>
-                                <a class="dropdown-item" href="{{url_for('view_scripts')}}">View Scripts</a>
-    
-                            </div>
-                        </li>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Menu
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{url_for('share_a_script')}}">Share Your Story</a>
+                            <a class="dropdown-item" href="{{url_for('view_scripts')}}">View Scripts</a>
+
+                        </div>
+                    </li>
                 </ul>
                 <!--Nav items if user logged in-->
                 {% else %}
@@ -74,7 +74,8 @@
             <div class="py-5"></div>
             <div class="row">
                 <div class="col-md-4 offset-md-4 text-center">
-                    <h1 class="main-heading jumbotron">Share a Script</h1>
+                        <h1 class="main-heading jumbotron d-lg-none">Share a Script</h1>
+                        <h1 class="main-heading display-3 jumbotron d-none d-lg-block">Share a Script</h1>
                 </div>
             </div>
         </div>

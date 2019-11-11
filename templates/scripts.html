@@ -8,9 +8,9 @@
     </div>
 </div>
 
-<!---Horizontal List--->
+<!---Category List--->
 <div class="row second-font">
-    <div class=" col-12">
+    <div class="col-12">
         <div id="list-example" class="list-group list-group-horizontal-lg pb-5">
             {% for each_category in categories %}
             <a class="list-group-item list-group-item-action" href="#cat_{{each_category._id}}"><i
@@ -48,7 +48,7 @@
 
                     <!--Chapters in that Book-->
                     <div class="collapse pt-2" id="content_{{each_script._id}}">
-                        <button type="button" class="btn btn-secondary">
+                        <button type="button" class="btn btn-secondary btn-custom">
 
                             <div data-toggle="modal" data-target='#id_{{each_script._id}}'>
                                 <h6 class="">

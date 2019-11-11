@@ -96,9 +96,6 @@ def insert_script():
         scripts = mongo.db.scripts
         author = mongo.db.authors
         existing_author = author.find_one({'first_name' : request.form['first_name'], 'last_name' : request.form['last_name']})
-        categories = mongo.db.categories
-        if categories is None:
-            flash ('You must select a category!')
         if existing_author is None:
             author.insert_one({'first_name' : request.form['first_name'], 'last_name' : request.form['last_name']})
         scripts.insert_one(request.form.to_dict())

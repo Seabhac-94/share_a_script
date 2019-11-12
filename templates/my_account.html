@@ -14,7 +14,7 @@
 <div class="row second-font py-5">
 
     {% for script in scripts %}
-    {% if script.uploaded_by == username %}
+        {% if script.uploaded_by == username %}
     <div class="col-6 col-md-4 text-center py-2 py-md-4">
 
         <!--Titles of Books/Scripts-->
@@ -37,7 +37,7 @@
                 </div>
             </div>
     </div>
-    {% endif %}
+        {% endif %}
     {% endfor %}
 </div>
 

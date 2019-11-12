@@ -20,13 +20,13 @@
                 </div>
                 <!--Flashed messages for username taken-->
                 {% with messages = get_flashed_messages() %}
-                {% if messages %}
+                    {% if messages %}
                 <div class="text-center second-font flash">
-                    {% for message in messages %}
-                    <p>{{ message }}</p>
-                    {% endfor %}
+                        {% for message in messages %}
+                         <p>{{ message }}</p>
+                        {% endfor %}
                 </div>
-                {% endif %}
+                    {% endif %}
                 {% endwith %}
                 <div class="form-group">
                     <label for="username">Username</label>

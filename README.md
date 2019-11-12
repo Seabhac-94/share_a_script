@@ -1,10 +1,20 @@
-Currently under progress.
-
 # Share a Script
 
 Share a Script is a project done under the requirements for MS3 Project - Data-Centric-Development w/Code Institute.
 <br>
 The idea for Share a Script was orignally conceived in June 2019. The intention of this site is to provide up-and-coming writers with a platform to share their work and have it critiqued by other authors.
+#
+Deployed App: <a href = "https://share-a-script.herokuapp.com/">Share a Script</a>
+
+Login with: 
+username = default_user
+<br>
+password = default_password
+<br>
+to access full functionality, or feel free to <a href="https://share-a-script.herokuapp.com/register">Sign-Up</a> yourself!
+
+Github Repo: <a href="https://github.com/Seabhac-94/share_a_script">share_a_script</a>
+
 #
 
 ## UX
@@ -130,6 +140,9 @@ This site was developed through constant testing of functionality. The below tes
 
 #
 ## Credits
+
+With the exception of 'Goodbye, Old Friend' and 'I Don't Understand', all scripts were taken from <a href="https://www.bookscool.com/en/index.php
+https://zelalemkibret.files.wordpress.com/2012/01/">Bookscool</a> to only populate the data - the intention is to remove these once the site is populated with new artists' work.
 
 #### Sources
 

@@ -27,7 +27,10 @@ The following features have been implemented already:
 4. User Logout: Enables the user to end the session.
 5. Navbars: The navbars are designed to change depending on whether or not users are logged in or not.
 6. Share Your Story: Once users are logged in they will have access to the Share Your Story form. This form will give the user an option of inputing Author's First and Last Name - this part of the form in particular is important as it gives the user an option of giving a psuedo-name or "Anonymous".
-7. Delete Script: Users have the ability to delete scripts that only they have shared from the My Account section
+7. My Account - Users can see their own individual scripts rom the My Account section.
+8. Delete Script: Users have the ability to delete scripts that only they have shared from the My Account section
+9. Edit Script: Users have the ability to edit scripts that only they have shared from the My Account section
+10. View scripts: Any visitiors to the site can view all work on the site, sorted by category.
 
 
 #### Possible Future Features 
@@ -79,19 +82,47 @@ This site was developed through constant testing of functionality. The below tes
 4. The test was repeated and passed. Once the user had logged in successfully, they were redirected to index. Later this was updated so that the user was redirected to a welcome page.
 
 ##### Sharing a Script
+1. After writing initial code in app.py and creating the form, try to submit a simple script with all inputs as 'Test'. Check the MongoDB for the 'Test'
+2. The 'Test' does upload, however, initially there is no way of regulating the form - ie. required fields, and attachment to a user.
+3. Insert 'required' into each form-group and attempt to submit the form while leaving one form-field blank at a time - popup appears.
+4. Create another field as 'uploaded_by' with 'readonly' attribute and input the username in session as value - this will attach the script to the user while also not allowing the user to edit the field.
+5. Run the same "Test" again with all fields correctly filled, and check MongoDB - script has uploaded correctly.
+
 
 ##### Deleting a Script
+1. Create a remove function in app.py and link it to my_account.html.
+2. Attempt to delete "Test" from previous tests.
+3. No issues - "Test" is deleted from MongoDB.
 
-
+##### Editing a Script
+1. After creating form and function - click on the 'Edit' from My Account and attempt to edit script.
+2. Initially only First Name, Last Name, Title, Chapter Name and Script were available for editing, this resulted in category_name, and uploaded_by being removed when editing was done.
+3. category_name and uploaded_by were insterted into the form again, and the values of each form group were changed to match the original values, this gives the user a better editing experience.
+4. Attempt to edit "Test" , change each field and submit.
+5. Succesfully edited and visible in My Account, View Scripts and MongoDB.
 
 
 ##### Testing Procedure for Responsiveness
 
+1. Developer tools was opened and the above tests were completed on a number of different platforms including iPhone 5/SE, iPhone 6/7/8, iPAd, iPad Pro, iPad Mini, Galaxy S5, Pixel 2, Pixel 2XL. Along with this, standard settings form the size bar were selcted, i.e; Mobile S/M/L, Tablet, Laptop & Laptop L.
+2. For each device, the site was checked to enure there was no overlap of information and that the presentation looked well.
+
 #
 ## Deployment
 
-- what needs to be installed
-- how to create requirements.txt and Procfile,
+#### Modules to be installed
+1. os
+2. Flask - render_template, redirect, request, url_for, session, flash
+3. PyMongo
+4. flask_pymongo
+4. Bcrypt
+5. bson.objectid - ObjectId 
+
+#### Creating a requirements.txt and Procfile
+
+1. In CLI input pip3 freeze --local > requirements.txt . This should generate a file with all tools listed and they're version number.
+2. Procfile - in CLI input echo web: python app.py > Procfile
+
 - how to create a new app on heroku
 - How to push to heroku or link to guthub depending on which method you used.
 - How to set config vars on heroku

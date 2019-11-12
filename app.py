@@ -104,6 +104,7 @@ def insert_script():
 """
 Display Scripts in particular category
 """
+
 @app.route('/view_scripts')
 def view_scripts():
     categories = list(mongo.db.categories.find())
@@ -111,7 +112,9 @@ def view_scripts():
     titles=list(mongo.db.titles.find())
     return render_template('scripts.html', scripts=scripts, categories=categories, titles=titles)
 
-
+"""
+Personalised account for user
+"""
 @app.route('/my_account')
 def my_account():
     username = session["username"]
@@ -152,8 +155,6 @@ def edit_script(script_id):
     categories =  mongo.db.categories.find()
     return render_template('edit_script.html', script=script, categories=categories, username=username)
 
-
-            
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), 

@@ -86,12 +86,10 @@ img {
     color: black;
 }
 
-
 .fa-book {
 
     color: brown;
 }
-
 
 /* --- login.html --- */
 
@@ -121,7 +119,11 @@ a.list-group-item{
     opacity: 0.8;
 }
 
+/* --- my_account.html --- */
 
+a.text-decoration-none {
+    color: #fafafa
+}
 
 /* --- Media Queries --- */
 

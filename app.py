@@ -3,7 +3,6 @@ from flask import Flask, render_template, redirect, request, url_for, session, f
 import pymongo
 import bcrypt
 import dns
-import env
 from flask_pymongo import PyMongo
 from pymongo import MongoClient
 from bson.objectid import ObjectId

@@ -112,10 +112,6 @@ def view_scripts():
     titles=list(mongo.db.titles.find())
     return render_template('scripts.html', scripts=scripts, categories=categories, titles=titles)
 
-@app.route('/get_authors')
-def get_authors():
-    authors=list(mongo.db.authors.find())
-    return render_template('authors.html', authors=authors)
 
 @app.route('/my_account')
 def my_account():

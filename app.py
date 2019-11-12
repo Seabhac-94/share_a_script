@@ -131,6 +131,35 @@ def delete_script(script_id):
     mongo.db.scripts.remove({'_id': ObjectId(script_id)})
     return redirect(url_for('my_account'))
 
+"""
+Edit a script from my_account
+"""
+
+@app.route('/update_script/<script_id>', methods=['POST'])
+def update_script(script_id):
+    script = mongo.db.scripts
+    script.update( {'_id': ObjectId(script_id)},
+    {   'first_name':request.form.get('first_name'),
+        'last_name':request.form.get('last_name'),
+        'uploaded_by':request.form.get('uploaded_by'),
+        'title':request.form.get('title'),
+        'chapter_name': request.form.get('chapter_name'),
+        'category_name': request.form.get('category_name'),
+        'script': request.form.get('script')
+    })
+    return redirect(url_for('my_account'))
+
+
+@app.route('/edit_script/<script_id>')
+def edit_script(script_id):
+    username = session["username"]
+    script =  mongo.db.scripts.find_one({"_id": ObjectId(script_id)})
+    categories =  mongo.db.categories.find()
+    return render_template('edit_script.html', script=script, categories=categories, username=username)
+
+
+            
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), 
     port= os.environ.get('PORT'),

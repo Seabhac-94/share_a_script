@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<!--Form for editing work-->
+    <div class="row">
+        <div class="col-10 offset-1 col-lg-6 offset-lg-3 ">
+            <form class="was-validated" method="POST" action="{{ url_for('update_script', script_id=script._id) }}">
+                <div class="form-group">
+                    <label for="first_name">Author's First Name (This can be a pseudoname if you want!)</label>
+                    <input type="text" class="form-control" name="first_name" placeholder="J.R.R." value="{{ script.first_name }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Author's Last Name</label>
+                    <input type="text" class="form-control" name="last_name" placeholder="Tolkien" value="{{ script.last_name }}" required>
+                </div>
+                <div class="form-group">
+                        <label for="uploaded_by">Uploaded By</label>
+                        <input type="text" class="form-control" name="uploaded_by" placeholder="Your Username"
+                            value="{{ username }}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" name="title" placeholder="Lord of the Rings" value="{{ script.title }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="chapter_name">Chapter Name</label>
+                    <input type="text" class="form-control" name="chapter_name" placeholder="Chapter One" value="{{ script.chapter_name }}" required>
+                </div>
+                <div class="form-group">
+                        <label for="categories">Book Type</label>
+                        <br>
+                        <select id="category" name="category_name" required>
+                            <option value="" disabled selected>Choose Category</option>
+                            {% for categories in categories %}
+                            <option value="{{categories.category_name}}">{{categories.category_name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                <div class="form-group">
+                    <label for="script">Copy and Paste your Script Here</label>
+                    <textarea rows="20" cols="50" class="form-control" name="script" placeholder="Once Upon a Time..." required>{{ script.script }}</textarea>
+                </div>
+                <button type="submit" class="btn btn-secondary btn-block">Update</button>
+            </form>
+            <br>
+        </div>
+    </div>
+</div>
+{% endblock %}

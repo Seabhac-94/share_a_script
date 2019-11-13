@@ -4,16 +4,16 @@ Share a Script is a project done under the requirements for MS3 Project - Data-C
 <br>
 The idea for Share a Script was orignally conceived in June 2019. The intention of this site is to provide up-and-coming writers with a platform to share their work and have it critiqued by other authors.
 #
-Deployed App: <a href = "https://share-a-script.herokuapp.com/">Share a Script</a>
+Deployed App: <a target="_blank" href = "https://share-a-script.herokuapp.com/">Share a Script</a>
 
 Login with: 
 username = default_user
 <br>
 password = default_password
 <br>
-to access full functionality, or feel free to <a href="https://share-a-script.herokuapp.com/register">Sign-Up</a> yourself!
+to access full functionality, or feel free to <a target="_blank" href="https://share-a-script.herokuapp.com/register">Sign-Up</a> yourself!
 
-Github Repo: <a href="https://github.com/Seabhac-94/share_a_script">share_a_script</a>
+Github Repo: <a target="_blank" href="https://github.com/Seabhac-94/share_a_script">share_a_script</a>
 
 #
 
@@ -51,12 +51,12 @@ The following features have been implemented already:
 1. HTML5 
 2. CSS3
 3. JavaScript
-4. <a href='https://www.python.org/'>Python</a>
-5. <a href='https://www.mongodb.com/'>MongoDB</a>
-6. <a href='https://flask.palletsprojects.com/en/1.1.x/'>Flask</a>
-6. <a href='https://pypi.org/project/bcrypt/'>Bcrypt</a>
-7. <a href='https://getbootstrap.com/'>Bootstrap</a>
-8. <a href='https://fontawesome.com/'>Font Awesome</a>
+4. <a target="_blank" href='https://www.python.org/'>Python</a>
+5. <a target="_blank" href='https://www.mongodb.com/'>MongoDB</a>
+6. <a target="_blank" href='https://flask.palletsprojects.com/en/1.1.x/'>Flask</a>
+6. <a target="_blank" href='https://pypi.org/project/bcrypt/'>Bcrypt</a>
+7. <a target="_blank" href='https://getbootstrap.com/'>Bootstrap</a>
+8. <a target="_blank" href='https://fontawesome.com/'>Font Awesome</a>
 
 #
 ## Testing
@@ -166,9 +166,9 @@ This site was developed through constant testing of functionality. The below tes
 
 #### Sources
 
-With the exception of 'Goodbye, Old Friend' and 'I Don't Understand', all scripts were taken from <a href="https://www.bookscool.com/en/index.php">Bookscool</a> and <a href="https://zelalemkibret.files.wordpress.com/2012/01/the-autobiography-of-nelson-mandela.pdf">Long Walk to Freedom</a> to only populate the data - the intention is to remove these once the site is populated with new artists' work.
+With the exception of 'Goodbye, Old Friend' and 'I Don't Understand', all scripts were taken from <a target="_blank" href="https://www.bookscool.com/en/index.php">Bookscool</a> and <a target="_blank" href="https://zelalemkibret.files.wordpress.com/2012/01/the-autobiography-of-nelson-mandela.pdf">Long Walk to Freedom</a> to only populate the data - the intention is to remove these once the site is populated with new artists' work.
 
 
 #### Media
 
-Background Image - https://www.enigma-mag.com/5-books-to-read-this-month/stack-of-books-great-education/
+Background Image - <a target="_blank" href="https://www.enigma-mag.com/5-books-to-read-this-month/stack-of-books-great-education/">Enigma</a>

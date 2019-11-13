@@ -4,7 +4,6 @@ redirect, request, url_for, session, flash, Markup)
 import pymongo
 import bcrypt
 import dns
-import env
 from flask_pymongo import PyMongo
 from pymongo import MongoClient
 from bson.objectid import ObjectId
@@ -165,4 +164,4 @@ def edit_script(script_id):
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), 
     port= os.environ.get('PORT'),
-    debug=True)
+    debug=False)

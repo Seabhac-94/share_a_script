@@ -16,13 +16,9 @@
         <div class="col-10 offset-1 col-lg-6 offset-lg-3 ">
             <form class="was-validated" method="POST" action="{{ url_for('insert_script') }}">
                 <div class="form-group">
-                    <label for="first_name">Author's First Name (This can be a pseudoname if you want!)</label>
-                    <input type="text" class="form-control" name="first_name" placeholder="J.R.R." required>
-                </div>
-                <div class="form-group">
-                    <label for="last_name">Author's Last Name</label>
-                    <input type="text" class="form-control" name="last_name" placeholder="Tolkien" required>
-                </div>
+                    <label for="author_name">Author's Name (This can be a pseudoname if you want!)</label>
+                    <input type="text" class="form-control" name="author_name" placeholder="J.R.R." required>
+                </div>    
                 <div class="form-group">
                     <label for="uploaded_by">Uploaded By</label>
                     <input type="text" class="form-control" name="uploaded_by" placeholder="Your Username"

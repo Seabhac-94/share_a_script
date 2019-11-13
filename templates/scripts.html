@@ -21,7 +21,7 @@
 </div>
 
 <!--- Categories & Scripts Returned --->
-<div class="row second-font">
+<div class="row second-font pb-5">
     {% for each_category in categories %}
     <div class="col-12 text-center">
 
@@ -42,13 +42,12 @@
                 <button class="btn book-btn align-top" type="button" data-toggle="collapse"
                     data-target="#content_{{each_script._id}}" aria-expanded="false" aria-controls="collapseExample">
                     {{ each_script.title }}
-                    <p class="pt-1"><small>{{each_script.first_name}} {{each_script.last_name}}</small></p>
+                    <p class="pt-1"><small>{{each_script.author_name}}</small></p>
                 </button>
 
                 <!--Chapters in that Book-->
                 <div class="collapse pt-2" id="content_{{each_script._id}}">
                     <button type="button" class="btn btn-secondary btn-custom">
-
                         <div data-toggle="modal" data-target='#id_{{each_script._id}}'>
                             <h6 class="">
                                 <i class="fas fa-book"></i> {{each_script.chapter_name}}
@@ -73,7 +72,7 @@
                                     {{each_script.script}}
                             </div>
                             <div class="modal-footer">
-                                <p class="pt-2">By {{each_script.first_name}} {{each_script.last_name}}</p>
+                                <p class="pt-2">By {{each_script.author_name}} </p>
                                 <hr>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
@@ -89,7 +88,5 @@
     </div>
     {% endfor %}
 </div>
-
-
 
 {% endblock %}

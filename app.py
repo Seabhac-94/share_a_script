@@ -97,11 +97,9 @@ Allows users to share a script
 def insert_script():
         scripts = mongo.db.scripts
         author = mongo.db.authors
-        existing_author = author.find_one({'first_name' : request.form['first_name'], 
-                                        'last_name' : request.form['last_name']})
+        existing_author = author.find_one({'author_name' : request.form['author_name']})
         if existing_author is None:
-            author.insert_one({'first_name' : request.form['first_name'], 
-                                'last_name' : request.form['last_name']})
+            author.insert_one({'author_name' : request.form['author_name']})
         scripts.insert_one(request.form.to_dict())
         return render_template('story_shared.html')
 
@@ -145,8 +143,7 @@ Edit a script from my_account
 def update_script(script_id):
     script = mongo.db.scripts
     script.update( {'_id': ObjectId(script_id)},
-    {   'first_name':request.form.get('first_name'),
-        'last_name':request.form.get('last_name'),
+    {   'author_name':request.form.get('author_name'),
         'uploaded_by':request.form.get('uploaded_by'),
         'title':request.form.get('title'),
         'chapter_name': request.form.get('chapter_name'),

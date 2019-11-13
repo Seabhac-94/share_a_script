@@ -164,8 +164,6 @@ This site was developed through constant testing of functionality. The below tes
 #
 ## Credits
 
-
-
 #### Sources
 
 With the exception of 'Goodbye, Old Friend' and 'I Don't Understand', all scripts were taken from <a href="https://www.bookscool.com/en/index.php">Bookscool</a> and <a href="https://zelalemkibret.files.wordpress.com/2012/01/the-autobiography-of-nelson-mandela.pdf">Long Walk to Freedom</a> to only populate the data - the intention is to remove these once the site is populated with new artists' work.

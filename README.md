@@ -133,22 +133,42 @@ This site was developed through constant testing of functionality. The below tes
 1. In CLI input pip3 freeze --local > requirements.txt . This should generate a file with all tools listed and they're version number.
 2. Procfile - in CLI input echo web: python app.py > Procfile
 
-- how to create a new app on heroku
-- How to push to heroku or link to guthub depending on which method you used.
-- How to set config vars on heroku
-- Final steps you took to deploy it.
+#### Creating an app on Heroku
+1. Create account with Heroku.
+2. Select "New" then "Create new app"
+3. Input app-name and region (Europe in this case)
+4. Follow steps for "Deploy using Heroku Git" (push from CLI, described below)
+5. Set Config vars (described below)
+
+##### Push to Heroku
+1. First, ensure requirements.txt and Procfile are configured.
+2. In temrinal window, run "heroku login"
+3. Press and key to be redirected to Heroku Login page, select "Login in to Heroku CLI"
+4. Return back to Terminal, Herok ushould be logged in, run the command "git push heroku master".
+5. Once successfully completed, " https://share-a-script.herokuapp.com/ deployed to Heroku" will be available in terminal window, you can follow this link to view your application.
+
+##### Set config vars on Heroku
+1. From your app dashboard, select settings.
+2. In settings, select "Reveal config vars"
+3. The following need to be configured;
+
+- I.P  : 0.0.0.0
+- PORT : 5000
+- MONGO_URI : mongodb+srv://root:password@clustername-yibrd.mongodb.net/collectionname?retryWrites=true&w=majority
+- SECRET_KEY : secret_key
+
+##### Final steps
+1. Ensure Debug is set to False in app.py
+2. Removed import env form app.py, the config vars are set through Heroku, env.py is just for development purposes only.
 
 #
 ## Credits
 
-With the exception of 'Goodbye, Old Friend' and 'I Don't Understand', all scripts were taken from <a href="https://www.bookscool.com/en/index.php
-https://zelalemkibret.files.wordpress.com/2012/01/">Bookscool</a> to only populate the data - the intention is to remove these once the site is populated with new artists' work.
+
 
 #### Sources
 
-
-https://www.bookscool.com/en/index.php
-https://zelalemkibret.files.wordpress.com/2012/01/the-autobiography-of-nelson-mandela.pdf
+With the exception of 'Goodbye, Old Friend' and 'I Don't Understand', all scripts were taken from <a href="https://www.bookscool.com/en/index.php">Bookscool</a> and <a href="https://zelalemkibret.files.wordpress.com/2012/01/the-autobiography-of-nelson-mandela.pdf">Long Walk to Freedom</a> to only populate the data - the intention is to remove these once the site is populated with new artists' work.
 
 
 #### Media
